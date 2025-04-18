@@ -30,6 +30,9 @@ class Post(models.Model):
     )
 
     title = models.CharField(max_length=200, unique=True)
+    category = models.ForeignKey(
+        Category, on_delete=models.CASCADE, related_name="cat_id"
+    )
     content = models.TextField()
     materials = models.TextField()
     time_taken = models.IntegerField(help_text="Time taken in minutes")

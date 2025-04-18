@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Craft chat</title>
+</head>
+
+<body>
+    <h1>Category selection</h1>
+    {% for category in object.list %}
+    <h2>{{ category.title }}</h2>
+    <p>{{ category.description }}</p>
+    {% endfor %}
+</body>
+
+</html>
