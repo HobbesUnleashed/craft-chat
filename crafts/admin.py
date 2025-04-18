@@ -13,7 +13,7 @@ class CategoryAdmin(SummernoteModelAdmin):
 class PostAdmin(SummernoteModelAdmin):
     list_display = ("title", "category", "age", "skill", "created_on")
     search_fields = ["title", "category"]
-    list_filter = "category"
+    list_filter = ("category",)
     summernote_fields = ("content", "materials")
 
 
@@ -21,4 +21,4 @@ class PostAdmin(SummernoteModelAdmin):
 class CommentAdmin(SummernoteModelAdmin):
     list_display = ("post", "content", "created_on")
     search_fields = ["content", "post"]
-    summernote_fields = "content"
+    summernote_fields = ("content",)
