@@ -6,9 +6,6 @@ from django.contrib.auth.models import User
 class Category(models.Model):
     title = models.CharField(max_length=30, unique=True)
     description = models.TextField()
-    image = models.ImageField(
-        upload_to="category-images/", default="category-images/default card.jpg"
-    )
 
     class Meta:
         ordering = ["id"]
@@ -44,7 +41,7 @@ class Post(models.Model):
     time_taken = models.IntegerField(help_text="Time taken in minutes")
     age = models.IntegerField(choices=AGE, default=0)
     image = models.ImageField(
-        upload_to="craft-images/", default="craft-images/default card.jpg"
+        upload_to="craft-images/", default="craft-images/default_card.jpg"
     )
     media_url = models.URLField(
         max_length=200,

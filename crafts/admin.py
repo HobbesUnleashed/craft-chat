@@ -6,7 +6,10 @@ from django_summernote.admin import SummernoteModelAdmin
 # Register your models here.
 @admin.register(Category)
 class CategoryAdmin(SummernoteModelAdmin):
-    summernote_fields = "description"
+    summernote_fields = (
+        "description",
+        "title",
+    )
 
 
 @admin.register(Post)
