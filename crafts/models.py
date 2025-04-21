@@ -6,9 +6,15 @@ from django.contrib.auth.models import User
 class Category(models.Model):
     title = models.CharField(max_length=30, unique=True)
     description = models.TextField()
+    image = models.ImageField(
+        upload_to="category-images/", default="category-images/default card.jpg"
+    )
 
     class Meta:
-        ordering = ["title"]
+        ordering = ["id"]
+
+    def __str__(self):
+        return f"{ self.title } | { self.description }"
 
 
 class Post(models.Model):
@@ -37,7 +43,15 @@ class Post(models.Model):
     materials = models.TextField()
     time_taken = models.IntegerField(help_text="Time taken in minutes")
     age = models.IntegerField(choices=AGE, default=0)
-    media_url = models.URLField(max_length=200, blank=True, null=True)
+    image = models.ImageField(
+        upload_to="craft-images/", default="craft-images/default card.jpg"
+    )
+    media_url = models.URLField(
+        max_length=200,
+        blank=True,
+        null=True,
+        help_text="Link to your Youtube/Facebook, etc",
+    )
     skill = models.IntegerField(choices=SKILL, default=0)
     created_on = models.DateTimeField(auto_now_add=True)
     author = models.ForeignKey(
